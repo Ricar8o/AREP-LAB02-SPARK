@@ -1,5 +1,8 @@
 package edu.escuelaing.arep.designprimer;
+
 import static spark.Spark.*;
+
+import edu.escuelaing.arep.app.model.Calculator;
 import spark.Request;
 import spark.Response;
 
@@ -10,18 +13,46 @@ import spark.Response;
 public class CalculatorWebApp 
 {
     public static void main(String[] args) {
+        staticFileLocation("/public");
         port(getPort());
         get("/hello", (req, res) -> "Hello Heroku");
-        get("/inputdata", (req, res) -> inputDataPage(req, res));
-        get("/results", (req, res) -> resultsPage(req, res));
+        post("/getMean",(req, res) -> calculateMean(req, res) ) ;
+        post("/getDeviation",(req, res) -> calculateDeviation(req, res) ) ;
+       
     }
-    
     /**
-     * This method reads the default port as specified by the PORT variable in
-     * the environment.
+     * Este metodo recibe una peticion con los datos a los cuales les va a sacar la media.
+     * @param req Request
+     * @param res Response
+     * @return El valor de la media de los datos.
+     */
+    private static Double calculateMean(Request req, Response res) {
+        Calculator calculator = new Calculator();
+        String cadena = req.body().substring(10,req.body().length()-2);
+        String[] datos = cadena.split(",");
+        calculator.convertir(datos);
+        Double media = calculator.mean();
+        return media;
+    }
+
+    /**
+     * Este metodo recibe una peticion con los datos a los cuales les va a sacar la desviacion estandar..
+     * @param req Request
+     * @param res Response
+     * @return El valor de la desviacion de los datos.
+     */
+    private static String calculateDeviation(Request req, Response res) {
+        Calculator calculator = new Calculator();
+        System.out.println(req.body());
+        return "Deviation";
+    }
+
+    /**
+     * This method reads the default port as specified by the PORT variable in the
+     * environment.
      *
-     * Heroku provides the port automatically so you need this to run the
-     * project on Heroku.
+     * Heroku provides the port automatically so you need this to run the project on
+     * Heroku.
      */
     static int getPort() {
         if (System.getenv("PORT") != null) {
@@ -29,54 +60,5 @@ public class CalculatorWebApp
         }
         return 4567; //returns default port if heroku-port isn't set (i.e. on localhost)
     }
-    private static String inputDataPage(Request req, Response res) {
-        String pageContent
-                = "<!DOCTYPE html>"
-                + "<html>"
-                + "<body>"
-                + "<h2>HTML Forms</h2>"
-                + "<form action=\"/results\">"
-                + "  First name:<br>"
-                + "  <input type=\"text\" id=\"firstname\" name=\"firstname\" value=\"Mickey\">"
-                + "  <br>"
-                + "  Last name:<br>"
-                + "  <input type=\"text\" name=\"lastname\" value=\"Mouse\">"
-                + "  <br><br>"
-                + "  <input type=\"submit\" value=\"Add\" onclick=\"myFunction();return false;\">"
-                + "  <br>"
-                + "  <input type=\"submit\" value=\"Submit\" >"
-                + "</form>"
-                + "<p>If you click the \"Submit\" button, the form-data will be sent to a page called \"/results\".</p>"
-                
-                + "<table style=\"width:30%\">"
-                +   " <tr>"
-                +        "<th>DATOS</th>"
-                +   " </tr>"
-                +    "<tbody id=\"datos\" name=\"datos\">"
-                +    "</tbody>"
-                + "</table>"
-
-
-                + "<script>"
-                + "function myFunction() {\n"
-                + "var dato = document.getElementById(\"firstname\").value;\n"
-                + "var fila = '<tr><td>' + dato  + '</td></tr>';\n"
-                + "var tabla = document.getElementById(\"datos\");"
-                + "tabla.innerHTML += fila;"
-                + "}\n"
-                + "</script>"
-
-                + "</body>"
-                + "</html>";
-                
-        return pageContent;
-    }
-
-    private static String resultsPage(Request req, Response res) {
-        // return req.queryParams("firstname") + " " +
-        //         req.queryParams("lastname");
-        System.out.println(req.contentLength());
-        return "Holaaa";
-    }   
     
 }

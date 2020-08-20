@@ -110,4 +110,15 @@ public class Calculator {
 		
 	}
 
+	/**
+	 * Este medoto convierte un arreglo de cadenas a una lista enlazada.
+	 * @param lista arreglo de cadenas con los datos.
+	 */
+	public void convertir(String[] lista){
+		for(String dato : lista){
+            Double num = Double.parseDouble(dato);
+			datos.add(num);
+			System.out.println(num);
+        }
+	}
 }
