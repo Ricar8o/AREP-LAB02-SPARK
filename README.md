@@ -113,9 +113,11 @@ Al oprimir el botón de Resultados, nos mostrará la media y la desviación est�
 ![pagina3](img/pagina3.jpg)
 
 ## Despliegue en heroku 
-Si quiere ver como funciona la pagina de este repositorio de click a [CalculatorWebApp](https://pacific-taiga-95644.herokuapp.com)
+Si quiere ver como funciona la pagina de este repositorio de click al botón.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://pacific-taiga-95644.herokuapp.com)
+
+o vaya a https://pacific-taiga-95644.herokuapp.com.
 
 
 ## Documentación
@@ -137,4 +139,4 @@ Para generar la documentacion con Maven puede ejecutar cualquiera de los siguien
 Andrés Ricardo Martínez Díaz - [Ricar8o](https://github.com/Ricar8o)
 
 ## Licencia
-Mire el archivo [LICENSE.md](LICENSE) para más detalles.
+Mire el archivo [LICENSE](LICENSE) para más detalles.
