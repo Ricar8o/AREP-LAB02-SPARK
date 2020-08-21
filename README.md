@@ -1,6 +1,5 @@
 # AREP - Laboratorio #2
-El ejercicio consiste en realizar un programa para calcular la media y la desviación estándar de un conjunto de datos leídos desde un archivo.
-Además se requiere crear una implementación de listas enlazadas (linked list) para el manejo de los datos.
+El ejercicio consiste en realizar un programa para calcular la media y la desviación estándar de un conjunto de datos leídos desde una pagina web.
 
 
 ## Definiciones
@@ -31,7 +30,7 @@ Desviación estándar
 ![mean](img/deviation.jpg)
 
 
-El enunciado del ejercicio ya nos da dos tablas con información, una con los datos y otra con los resultados de la media y la desviación estándar. Los datos de la tabla 1 se encuentran en la carpeta [data](data) del repositorio y el resultado que da este programa puede observarlo en la sección de [ejemplos](#Ejemplos) y compararlo con el resultado en la tabla 2.
+El enunciado del ejercicio ya nos da dos tablas con información, una con los datos y otra con los resultados de la media y la desviación estándar. Los datos de la tabla 1 se encuentran en la carpeta [data](data) del repositorio.
 
 ![tabla1](img/tabla1.jpg)
 ![tabla2](img/tabla2.jpg)
@@ -81,6 +80,7 @@ En ambos casos se ejecutara en http://localhost:4567
 
 ### Heroku (Opcional)
 Si tiene instalado heroku puede ejecutar el siguiente comando en la carpeta del repositorio:
+
         heroku local web
 
 NOTA: 
@@ -115,7 +115,7 @@ Al oprimir el botón de Resultados, nos mostrará la media y la desviación est�
 ## Despliegue en heroku 
 Si quiere ver como funciona la pagina de este repositorio de click a [CalculatorWebApp](https://pacific-taiga-95644.herokuapp.com)
 
-
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://pacific-taiga-95644.herokuapp.com)
 
 
 ## Documentación
