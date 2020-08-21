@@ -2,22 +2,24 @@
 <html>
     <head>
         <script src="apiclient.js"></script>
+        <script src="basic.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script> 
     </head>
     <body>
-        <h2>HTML Forms</h2>
+        <h2>Media Y Desviacion</h2>
         <form >
           Numero:<br>  
-          <input type="text" id="numero" name="numero" value="0">  <br/>  
-          <input type="submit" value="add" onclick="apiclient.addData();return false;">
-          <input type="submit" value="Get Results" onclick="apiclient.showResults();return false;">
-          <br/> 
+          <input type="text" id="numero" name="numero" value="0">  <br/> 
+          <br/>  
+          <input type="submit" value="agregar" onclick="basic.addData();return false;">
+        </form>
+        <button  onclick="basic.getResults();return false;">Resultados</button>
+          <br/> <br/> 
           Media: 
           <div id="media" style="display: inline;"></div>
           <br/>
           Desviacion: 
           <div id="desviacion" style="display: inline;"></div>
-        </form>
 
         </p><table style="width:30%">
             <tr>

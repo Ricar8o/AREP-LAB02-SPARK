@@ -10,7 +10,7 @@ import java.util.Scanner;
 /**
  * La clase Calculator se encarga de leer datos, guardarlos y realizar operaciones matematicas con ellos.
  * @author Andres Ricardo Martinez Diaz
- * @version 1.0
+ * @version 1.1
  */
 public class Calculator {
 
@@ -118,7 +118,6 @@ public class Calculator {
 		for(String dato : lista){
             Double num = Double.parseDouble(dato);
 			datos.add(num);
-			System.out.println(num);
         }
 	}
 }

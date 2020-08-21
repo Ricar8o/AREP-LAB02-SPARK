@@ -7,45 +7,35 @@ import spark.Request;
 import spark.Response;
 
 /**
- * Hello world!
- *
- */
+ * CalculatorWebApp provee la API para consultar la media y la desviacion estandar a partir de un conjunto de datos.
+ * @author Ricardo Martinez
+ * @version 1.0
+ */ 
 public class CalculatorWebApp 
 {
     public static void main(String[] args) {
         staticFileLocation("/public");
         port(getPort());
         get("/hello", (req, res) -> "Hello Heroku");
-        post("/getMean",(req, res) -> calculateMean(req, res) ) ;
-        post("/getDeviation",(req, res) -> calculateDeviation(req, res) ) ;
+        post("/getMean-Deviation",(req, res) -> calculate(req, res) ) ;
        
     }
     /**
      * Este metodo recibe una peticion con los datos a los cuales les va a sacar la media.
      * @param req Request
      * @param res Response
-     * @return El valor de la media de los datos.
+     * @return El valor de la media y la desviacion estandar de los datos, separados por una linea.
      */
-    private static Double calculateMean(Request req, Response res) {
+    private static String calculate(Request req, Response res) {
         Calculator calculator = new Calculator();
         String cadena = req.body().substring(10,req.body().length()-2);
         String[] datos = cadena.split(",");
         calculator.convertir(datos);
         Double media = calculator.mean();
-        return media;
+        Double desviacion = calculator.deviation(media);
+        return media + "-" + desviacion;
     }
 
-    /**
-     * Este metodo recibe una peticion con los datos a los cuales les va a sacar la desviacion estandar..
-     * @param req Request
-     * @param res Response
-     * @return El valor de la desviacion de los datos.
-     */
-    private static String calculateDeviation(Request req, Response res) {
-        Calculator calculator = new Calculator();
-        System.out.println(req.body());
-        return "Deviation";
-    }
 
     /**
      * This method reads the default port as specified by the PORT variable in the
