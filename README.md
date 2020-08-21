@@ -119,6 +119,8 @@ Si quiere ver como funciona la pagina de este repositorio de click al botón.
 
 o vaya a https://pacific-taiga-95644.herokuapp.com.
 
+## Despliegue Circleci
+[![CircleCI](https://circleci.com/gh/Ricar8o/AREP-LAB02-SPARK.svg?style=svg)](https://app.circleci.com/pipelines/github/Ricar8o/AREP-LAB02-SPARK)
 
 ## Documentación
 
