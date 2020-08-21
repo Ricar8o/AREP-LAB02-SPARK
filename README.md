@@ -51,6 +51,10 @@ Debe tener instalado lo siguiente:
 
 GIT no es completamente necesario pero si es recomendable, también puede descargar el repositorio como un .zip.
 
+## Otras Tecnologías
+* [Heroku](www.heroku.com) - Es una plataforma como servicio (PaaS) que permite a los desarrolladores crear, ejecutar y operar aplicaciones completamente en la nube.
+* [Spark Framework](http://sparkjava.com) - Es un framework web de desarrollo rápido inspirado en el framework Sinatra para Ruby y se basa en la filosofía Java 8 Lambda Expression.
+
 ## Pruebas y Compilación
 
 Para compilar el proyecto podemos ejecutar varias opciones. 
@@ -68,23 +72,51 @@ Para compilar el proyecto podemos ejecutar varias opciones.
 ## Ejecución
 Para ejecutar el programa puede hacerlo desle la linea de comandos ejecutando cualquiera de las siguientes opciones.
 
-*       java -cp target\classes edu.escuelaing.arep.app.App
-*       java -cp target\CalculatorApp-1.0-SNAPSHOT.jar edu.escuelaing.arep.app.App
+### Windows
+        java -cp target/classes;target/dependency/* edu.escuelaing.arep.designprimer.CalculatorWebApp
+### Linux
+        java -cp target/classes:target/dependency/* edu.escuelaing.arep.designprimer.CalculatorWebApp
 
-### Nota: 
-El método calcular de la clase Calculator es quien muestra los resultados redondeados a dos cifras decimales, los métodos que calculan la media y la desviación estándar no redondean los resultados.
+En ambos casos se ejecutara en http://localhost:4567
 
-## Ejemplos
+### Heroku (Opcional)
+Si tiene instalado heroku puede ejecutar el siguiente comando en la carpeta del repositorio:
+        heroku local web
 
-En el repositorio se encuentran dos archivos con extensión txt en una carpeta llamada [data](data). Los archivos tiene datos numéricos, un dato por línea. 
+NOTA: 
+En el repositorio se encuentra un archivo llamado [Procfile](/Procfile).
 
-Al ejecutar el programa se le pedirá que escriba la ruta del archivo que quiere ser leído, si el archivo se encuentra en la carpeta donde ejecuto el programa entonces puede escribir la ruta de la siguiente manera.
+Si esta en linux deberia ejecutarse sin problema, en el caso de que este en windows basta con cambiar los dos puntos ":" por un punto y coma ";" y borrar la parte "$JAVA_OPTS".
+ 
+## Desplegando de manera local
 
+Al ejecutar.
+
+Para el ejemplo lo demostraremos con heroku.
+### Windows
 ![Prueba1](img/prueba1.jpg)
-
-También puede escribir la ruta completa.
-
+### Linux
 ![Prueba2](img/prueba2.jpg)
+
+Como se ve, en ambos casos pasa exactamente lo mismo y se abre un servidor, con heroku se nos abrira por el puerto 5000. Así que la dirección es http://localhost:5000
+
+Al ingresar veremos la siguiente página
+
+![pagina1](img/pagina1.jpg)
+
+Después de agregar cada dato, este se podrá observar en la tabla de datos. La aplicación ya valida que solo pueda digitar números, si ingresa letras o espacios vacíos no registra nada.
+
+![pagina2](img/pagina2.jpg)
+
+Al oprimir el botón de Resultados, nos mostrará la media y la desviación estándar de estos.
+
+![pagina3](img/pagina3.jpg)
+
+## Despliegue en heroku 
+Si quiere ver como funciona la pagina de este repositorio de click a [CalculatorWebApp](https://pacific-taiga-95644.herokuapp.com)
+
+
+
 
 ## Documentación
 
@@ -96,14 +128,9 @@ Para generar la documentacion con Maven puede ejecutar cualquiera de los siguien
 *        mvn javadoc:javadoc
 *        mvn javadoc:jar
 
-### Java
-Si quiere generarla usando java puede hacerlo con el siguiente comando.
-
-*       javadoc -d docs src\main\java\edu\escuelaing\arep\app\*.java src\main\java\edu\escuelaing\arep\app\model\*.java
-
 ## PDF Diseño
 
-[DESCRIPCION.PDF](Arep_Lab_2.pdf)
+[Arep_Lab_2.PDF](Arep_Lab_2.pdf)
 
 ## Autor 
 
